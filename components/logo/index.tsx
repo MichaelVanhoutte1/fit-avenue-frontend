@@ -2,7 +2,7 @@ import { LogoImage } from "./styles";
 
 interface Props {}
 
-const Logo = (props: Props) => {
+const DashboardSummary = (props: Props) => {
     return (
         <>
             <LogoImage loading="lazy" src="/images/logo.svg" alt="logo" />
@@ -10,4 +10,4 @@ const Logo = (props: Props) => {
     );
 };
 
-export default Logo;
+export default DashboardSummary;
