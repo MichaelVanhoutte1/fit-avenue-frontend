@@ -9,9 +9,13 @@ export const breakpoints = {
 
 export const colors = {
     primary: `#082032`,
-    secondary: `#4f68f6`,
+    extralightpurple: '#a2b0fb',
+    lightpurple: `#808ded`,
+    purple: `#5063ee`,
+    darkpurple: `#3447d4`,
+    lightgray: '#eaeaf2',
     whiteText: `#fff`,
-    blackText: `#000`,
-    lightgray: `rgb(199, 199, 199)`,
+    blackText: `#27262b`,
+    darkblueText: '#2a2e49',
     disabled: `#bdbdbd`,
 };
