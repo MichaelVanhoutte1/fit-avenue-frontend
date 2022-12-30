@@ -7,7 +7,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
     return (
         <>
-            {children}
+            <main>{children}</main>
             <Navbar />
         </>
     );

@@ -4,14 +4,15 @@ interface Props {
     src: string;
     alt: string;
     content: string;
+    href: string;
 }
 
 const NavbarItem = (props: Props) => {
-const {content, src, alt} = props;
+const {content, src, alt, href} = props;
 
     return (
         <>
-            <ItemDiv>
+            <ItemDiv href={href}>
                 <ItemImage src={src} alt={alt}/>
                 <ItemContent>{content}</ItemContent>
             </ItemDiv>

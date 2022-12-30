@@ -8,13 +8,20 @@ const Navbar = (props: Props) => {
         <>
             <NavbarDiv>
                 <Wrapper>
-                    <NavbarItem src="/images/icons/home.svg" alt="home" content="Dashboard" />
                     <NavbarItem
+                        href="/dashboard"
+                        src="/images/icons/home.svg"
+                        alt="home"
+                        content="Dashboard"
+                    />
+                    <NavbarItem
+                        href="/statistics"
                         src="/images/icons/chart.svg"
                         alt="statistics"
                         content="Statistics"
                     />
                     <NavbarItem
+                        href="/calendar"
                         src="/images/icons/calendar.svg"
                         alt="calendar"
                         content="Calendar"

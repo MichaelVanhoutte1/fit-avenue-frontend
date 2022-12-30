@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../styles/variables.styled";
 
-export const ItemDiv = styled.div`
+export const ItemDiv = styled.a`
     width: fit-content;
     text-align: center;
 `;
