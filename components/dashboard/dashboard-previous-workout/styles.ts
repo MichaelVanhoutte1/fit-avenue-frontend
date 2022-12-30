@@ -4,7 +4,7 @@ import { colors } from "../../../styles/variables.styled";
 export const SummaryDiv = styled.div`
     display: flex;
     padding: 1rem 0;
-    border-bottom: 2px solid ${colors.lightgray};
+    border-bottom: 2px solid ${colors.bordergray};
 `;
 
 export const DateDiv = styled.div`
@@ -25,5 +25,5 @@ export const WorkoutName = styled.p`
 `;
 
 export const Exercises = styled.p`
-    font-size: 1.1rem;
+    font-size: 1rem;
 `;

@@ -14,6 +14,7 @@ export const colors = {
     purple: `#5063ee`,
     darkpurple: `#3447d4`,
     lightgray: '#eaeaf2',
+    bordergray: '#e0dfe7',
     whiteText: `#fff`,
     blackText: `#27262b`,
     darkblueText: '#2a2e49',

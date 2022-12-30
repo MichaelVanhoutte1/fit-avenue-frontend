@@ -6,8 +6,8 @@ export const SummaryElement = styled.div`
     padding: 0.5rem 0;
     padding-left: 1rem;
     &:nth-child(2) {
-        border-right: 2px solid ${colors.lightgray};
-        border-left: 2px solid ${colors.lightgray};
+        border-right: 2px solid ${colors.bordergray};
+        border-left: 2px solid ${colors.bordergray};
     }
 `;
 
@@ -21,7 +21,7 @@ export const ValueText = styled.p`
 `;
 
 export const ValueInfoText = styled.p`
-color: ${colors.darkblueText};
+    color: ${colors.darkblueText};
 `;
 
 export const UnitText = styled.p`

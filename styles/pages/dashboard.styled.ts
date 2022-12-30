@@ -23,5 +23,7 @@ export const WorkoutsButton = styled.button`
 `;
 
 export const HeadDiv = styled.div`
-    margin: 1rem 0 1rem 1rem;
+    margin: 1rem ;
+    display: flex;
+    justify-content: space-between;
 `;
