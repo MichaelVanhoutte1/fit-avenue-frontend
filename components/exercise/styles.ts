@@ -1,30 +1,25 @@
 import styled from "styled-components";
-import { colors } from "../../../styles/variables.styled";
+import { colors } from "../../styles/variables.styled";
 
-export const SummaryElement = styled.div`
-    width: 33vw;
-    padding: 0.5rem 0;
-    padding-left: 1rem;
-    &:nth-child(2) {
-        border-right: 2px solid ${colors.bordergray};
-        border-left: 2px solid ${colors.bordergray};
-    }
+export const ExerciseDiv = styled.div`
+    width: fill-available;
+    margin-top: 1rem;
+    display: flex;
+    border: 2px solid ${colors.bordergray};
+    background-color: ${colors.whiteText};
+    padding: 1rem;
 `;
 
 export const ValueDiv = styled.div`
-    display: flex;
+    margin-left: 1rem;
 `;
 
 export const ValueText = styled.p`
-    font-size: 1.5rem;
-    color: ${colors.darkblueText};
+    font-size: .9rem;
 `;
 
-export const ValueInfoText = styled.p`
-    color: ${colors.darkblueText};
-`;
-
-export const UnitText = styled.p`
-    margin-left: 0.5rem;
+export const ExerciseName = styled.p`
     margin-top: auto;
+    font-size: 1.2rem;
+    font-weight: 500;
 `;

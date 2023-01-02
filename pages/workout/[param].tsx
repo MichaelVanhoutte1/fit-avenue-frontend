@@ -1,7 +1,8 @@
+import Exercise from "../../components/exercise";
 import WorkoutChart from "../../components/workout/chart";
 import WorkoutSummary from "../../components/workout/summary";
 import { ExerciseDiv, HeadDiv, ImageDiv, WorkoutText } from "../../styles/pages/workout";
-import Exercise from "../exercise/[param]";
+
 import Image from "next/image";
 
 export default function WorkoutSpecific() {
@@ -21,9 +22,9 @@ export default function WorkoutSpecific() {
             <WorkoutSummary />
             <ExerciseDiv>
                 <WorkoutText>Exercises</WorkoutText>
-                <Exercise />
-                <Exercise />
-                <Exercise />
+                <Exercise src="/images/icons/checkmark.svg" alt='something' name='Bench press'/>
+                <Exercise src="/images/icons/checkmark.svg" alt='something' name='Bench press'/>
+                <Exercise src="/images/icons/checkmark.svg" alt='something' name='Bench press'/>
             </ExerciseDiv>
         </>
     );

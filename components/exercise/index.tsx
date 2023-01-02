@@ -1,23 +1,24 @@
-import { SummaryElement, ValueText, ValueInfoText, UnitText, ValueDiv } from "./styles";
+import {  ValueText, ValueDiv, ExerciseDiv, ExerciseName } from "./styles";
+import Image from "next/image";
 
 interface Props {
-    value: string;
-    info: string;
-    unit?: string;
+    name: string;
+    src: string;
+    alt: string;
 }
 
 const Exercise = (props: Props) => {
-    const { value, info, unit } = props;
+    const { src, alt, name } = props;
 
     return (
         <>
-            <SummaryElement>
+            <ExerciseDiv>
+                <Image src={src} alt={alt} width='30' height='30' />
                 <ValueDiv>
-                    <ValueText>{value}</ValueText>
-                    {unit && <UnitText>{unit}</UnitText>}
+                    <ValueText>1 of 5</ValueText>
+                    <ExerciseName>{name}</ExerciseName>
                 </ValueDiv>
-                <ValueInfoText>{info}</ValueInfoText>
-            </SummaryElement>
+            </ExerciseDiv>
         </>
     );
 };
