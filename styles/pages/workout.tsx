@@ -21,3 +21,7 @@ export const ExerciseDiv = styled.div`
     display: flex;
     justify-content: space-between;
 `;
+
+export const ImageDiv = styled.div`
+    margin: 0 0 0 1rem ;
+`;
