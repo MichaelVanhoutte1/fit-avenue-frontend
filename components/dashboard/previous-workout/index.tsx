@@ -1,4 +1,4 @@
-import DashboardDate from "../dashboard-date";
+import DashboardDate from "../date";
 import { SummaryDiv, WorkoutDiv, PreviousWorkoutText, WorkoutName, Exercises, DateDiv } from "./styles";
 
 interface Props {}

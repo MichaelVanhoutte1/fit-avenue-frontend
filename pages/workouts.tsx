@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Title from "../components/title";
-import Workout from "../components/workout";
+import WorkoutChart from "../components/workout/chart";
 import { ActionButton, ActionDiv, HeadDiv, WorkoutsDiv } from "../styles/pages/workouts";
 
-export default function Workouts() {
+export default function WorkoutCharts() {
     return (
         <>
             <HeadDiv>
@@ -15,9 +15,9 @@ export default function Workouts() {
             </HeadDiv>
             <WorkoutsDiv>
                 <Title content="My Workouts" />
-                <Workout />
-                <Workout />
-                <Workout />
+                <WorkoutChart />
+                <WorkoutChart />
+                <WorkoutChart />
             </WorkoutsDiv>
         </>
     );

@@ -1,4 +1,4 @@
-import DashboardSummaryElement from "../dashboard-summary-element";
+import DashboardSummaryElement from "../summary-element";
 import { SummaryDiv } from "./styles";
 
 interface Props {}

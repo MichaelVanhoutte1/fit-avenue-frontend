@@ -1,8 +1,8 @@
 import Image from "next/image";
-import DashboardPreviousWorkout from "../components/dashboard/dashboard-previous-workout";
-import DashboardSummary from "../components/dashboard/dashboard-summary";
+import DashboardPreviousWorkout from "../components/dashboard/previous-workout";
+import DashboardSummary from "../components/dashboard/summary";
 import Title from "../components/title";
-import Workout from "../components/workout";
+import WorkoutChart from "../components/workout/chart";
 import {
     HeadDiv,
     WorkoutHeadDiv,
@@ -28,7 +28,7 @@ export default function Dashboard() {
                     <WorkoutsButton>Show all</WorkoutsButton>
                     </Link>
                 </WorkoutHeadDiv>
-                <Workout/>
+                <WorkoutChart/>
             </WorkoutsDiv>
         </>
     );
