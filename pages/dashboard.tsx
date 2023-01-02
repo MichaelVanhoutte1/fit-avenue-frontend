@@ -10,6 +10,7 @@ import {
     WorkoutsButton,
     WorkoutsDiv,
 } from "../styles/pages/dashboard.styled";
+import Link from "next/link";
 
 export default function Dashboard() {
     return (
@@ -23,7 +24,9 @@ export default function Dashboard() {
             <WorkoutsDiv>
                 <WorkoutHeadDiv>
                     <WorkoutText>My Workouts</WorkoutText>
+                    <Link href='/workouts'>
                     <WorkoutsButton>Show all</WorkoutsButton>
+                    </Link>
                 </WorkoutHeadDiv>
                 <Workout/>
             </WorkoutsDiv>
