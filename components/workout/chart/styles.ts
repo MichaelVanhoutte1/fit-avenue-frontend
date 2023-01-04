@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../../styles/variables.styled";
 
 export const ChartDiv = styled.div`
-    margin-top: 1rem;
+    margin: 1rem 1rem 0 1rem;
     border-radius: 0.25rem;
     height: fit-content;
     background: -webkit-linear-gradient(325deg, rgb(62, 73, 163) 0%, rgb(49, 58, 117) 50%);

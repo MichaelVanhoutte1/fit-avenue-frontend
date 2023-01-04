@@ -9,21 +9,17 @@ export const WorkoutHeadDiv = styled.div`
     margin: 1.5rem 0 1rem;
 `;
 
-export const WorkoutText = styled.p`
-    text-transform: uppercase;
-    font-weight: 500;
-`;
-
 export const WorkoutsButton = styled.button`
     background-color: transparent;
     color: ${colors.purple};
     border: none;
     font-weight: 500;
     font-size: 1rem;
+    margin-right: 1rem;
 `;
 
 export const HeadDiv = styled.div`
-    margin: 1rem ;
+    margin: 1rem 1rem 1rem 0 ;
     display: flex;
     justify-content: space-between;
 `;

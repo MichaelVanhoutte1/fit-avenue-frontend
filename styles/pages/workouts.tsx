@@ -19,7 +19,7 @@ export const ActionButton = styled.button`
 `;
 
 export const HeadDiv = styled.div`
-    margin: 1rem 0;
+    margin: 1rem;
     display: flex;
     justify-content: space-between;
 `;

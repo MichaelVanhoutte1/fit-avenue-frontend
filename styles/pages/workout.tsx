@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { breakpoints, colors } from "../variables.styled";
 
-export const WorkoutText = styled.p`
-    text-transform: uppercase;
-    font-weight: 500;
-`;
-
 export const HeadDiv = styled.div`
     padding: 1rem 0 0 0 ;
     justify-content: space-between;
@@ -17,7 +12,7 @@ export const HeadDiv = styled.div`
 `;
 
 export const ExerciseDiv = styled.div`
-    margin: 1rem ;
+    margin: 1rem 0 ;
     justify-content: space-between;
 `;
 

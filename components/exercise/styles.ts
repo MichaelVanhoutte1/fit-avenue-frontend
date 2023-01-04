@@ -3,11 +3,11 @@ import { colors } from "../../styles/variables.styled";
 
 export const ExerciseDiv = styled.div`
     width: fill-available;
-    margin-top: 1rem;
     display: flex;
     border: 2px solid ${colors.bordergray};
     background-color: ${colors.whiteText};
     padding: 1rem;
+    margin: 1rem 1rem 0 1rem;
 `;
 
 export const ValueDiv = styled.div`

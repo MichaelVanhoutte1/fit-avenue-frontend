@@ -6,7 +6,6 @@ import WorkoutChart from "../components/workout/chart";
 import {
     HeadDiv,
     WorkoutHeadDiv,
-    WorkoutText,
     WorkoutsButton,
     WorkoutsDiv,
 } from "../styles/pages/dashboard.styled";
@@ -23,7 +22,7 @@ export default function Dashboard() {
             <DashboardPreviousWorkout />
             <WorkoutsDiv>
                 <WorkoutHeadDiv>
-                    <WorkoutText>My Workouts</WorkoutText>
+                <Title isSmall content="My workouts" />
                     <Link href='/workouts'>
                     <WorkoutsButton>Show all</WorkoutsButton>
                     </Link>
