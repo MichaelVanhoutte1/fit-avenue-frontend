@@ -6,9 +6,12 @@ export const Text = styled.h1`
     font-weight: 500;
     margin-left: 1rem;
     color: ${colors.blackText};
-    &.small{
+    &.small {
         text-transform: uppercase;
         font-weight: 500;
-        font-size: .95rem;
+        font-size: 0.95rem;
+    }
+    &.white {
+        color: ${colors.whiteText};
     }
 `;
