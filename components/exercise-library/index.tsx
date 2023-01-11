@@ -1,6 +1,4 @@
 import Exercise from "../exercise";
-import {  ValueText, ValueDiv, ExerciseDiv, ExerciseName } from "./styles";
-import Image from "next/image";
 
 interface Props {
 
@@ -12,6 +10,10 @@ const ExerciseLibrary = (props: Props) => {
     return (
         <>
                 <Exercise forLibrary name='Bench Press' src='/images/icons/calendar.svg' alt="exercise" />
+                <Exercise forLibrary name='Dumbell Press' src='/images/icons/calendar.svg' alt="exercise" />
+                <Exercise forLibrary name='Chest flies' src='/images/icons/calendar.svg' alt="exercise" />
+                <Exercise forLibrary name='Tricep Extensions' src='/images/icons/calendar.svg' alt="exercise" />
+                <Exercise forLibrary name='Skull Crushers' src='/images/icons/calendar.svg' alt="exercise" />
         </>
     );
 };

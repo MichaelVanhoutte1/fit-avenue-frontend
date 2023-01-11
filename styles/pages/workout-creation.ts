@@ -27,7 +27,7 @@ export const ActionDiv = styled.div`
 `;
 
 export const SelectDiv = styled.div`
-    margin: 1rem 0 ;
+
 `;
 
 export const SubTitle = styled.p`

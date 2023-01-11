@@ -8,6 +8,7 @@ import {
     ImageDiv,
 } from "./styles";
 import Image from "next/image";
+import cs from 'classnames'
 
 interface Props {
     name: string;
@@ -22,7 +23,7 @@ const Exercise = (props: Props) => {
     return (
         <>
             {forLibrary ? (
-                <ExerciseDiv>
+                <ExerciseDiv className={cs({libraryExercise: forLibrary})}>
                     <Image src={src} alt={alt} width="30" height="30" />
                     <ValueDiv>
                         <ExerciseName>{name}</ExerciseName>

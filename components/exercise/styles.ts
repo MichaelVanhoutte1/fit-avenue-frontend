@@ -8,6 +8,9 @@ export const ExerciseDiv = styled.div`
     background-color: ${colors.whiteText};
     padding: 1rem;
     margin: 1rem 1rem 0 1rem;
+    &.libraryExercise{
+        margin: 0;
+    }
 `;
 
 export const ValueDiv = styled.div`
