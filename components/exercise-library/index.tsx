@@ -1,3 +1,4 @@
+import Exercise from "../exercise";
 import {  ValueText, ValueDiv, ExerciseDiv, ExerciseName } from "./styles";
 import Image from "next/image";
 
@@ -10,9 +11,7 @@ const ExerciseLibrary = (props: Props) => {
 
     return (
         <>
-            <ExerciseDiv>
-
-            </ExerciseDiv>
+                <Exercise forLibrary name='Bench Press' src='/images/icons/calendar.svg' alt="exercise" />
         </>
     );
 };

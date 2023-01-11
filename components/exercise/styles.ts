@@ -19,7 +19,24 @@ export const ValueText = styled.p`
 `;
 
 export const ExerciseName = styled.p`
-    margin-top: auto;
+    margin: auto 0 .25rem 0;
     font-size: 1.2rem;
     font-weight: 500;
+`;
+
+export const BoxLabel = styled.div`
+    border: 2px solid ${colors.bordergray};
+    width: fit-content;
+    padding: .15rem .5rem;
+    font-size: .8rem;
+    margin: .15rem;
+`;
+
+export const MuscleGroupsDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+export const ImageDiv = styled.div`
+    margin: auto 0 auto auto;
 `;
