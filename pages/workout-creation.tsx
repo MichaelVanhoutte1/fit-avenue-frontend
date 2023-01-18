@@ -2,7 +2,15 @@ import ExerciseLibrary from "../components/exercise-library";
 import Searchbar from "../components/searchbar";
 import SelectedExercises from "../components/selected-exercises";
 import Title from "../components/title";
-import { ActionDiv, HeadDiv, ImageDiv, SelectDiv, TitleDiv, SubTitle } from "../styles/pages/workout-creation";
+import {
+    ActionDiv,
+    HeadDiv,
+    ImageDiv,
+    SelectDiv,
+    TitleDiv,
+    SubTitle,
+    OverflowDiv,
+} from "../styles/pages/workout-creation";
 import Image from "next/image";
 
 export default function Statistics() {
@@ -18,8 +26,8 @@ export default function Statistics() {
                     />
                 </ImageDiv>
                 <TitleDiv>
-                <Title isWhite content='Add exercises' />
-                <SubTitle>Workout creation</SubTitle>
+                    <Title isWhite content="Add exercises" />
+                    <SubTitle>Workout creation</SubTitle>
                 </TitleDiv>
                 <ActionDiv>
                     <Searchbar />
@@ -31,10 +39,12 @@ export default function Statistics() {
                     />
                 </ActionDiv>
             </HeadDiv>
-            <SelectDiv>
-                <ExerciseLibrary />
-                <SelectedExercises />
-            </SelectDiv>
+            <OverflowDiv>
+                <SelectDiv>
+                    <ExerciseLibrary />
+                    <SelectedExercises />
+                </SelectDiv>
+            </OverflowDiv>
         </>
     );
 }

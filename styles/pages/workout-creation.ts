@@ -27,7 +27,15 @@ export const ActionDiv = styled.div`
 `;
 
 export const SelectDiv = styled.div`
+    display: flex;
+    max-height: 400px;
+    height: 400px;
+    width: max-content;
+    white-space: nowrap;
+`;
 
+export const OverflowDiv = styled.div`
+    overflow-x: auto;
 `;
 
 export const SubTitle = styled.p`
