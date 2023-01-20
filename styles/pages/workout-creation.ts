@@ -28,8 +28,8 @@ export const ActionDiv = styled.div`
 
 export const SelectDiv = styled.div`
     display: flex;
-    max-height: 400px;
-    height: 400px;
+    max-height: calc(100vh -160px);
+    height:  calc(100vh -160px);
     width: max-content;
     white-space: nowrap;
 `;

@@ -3,7 +3,7 @@ import { colors } from "../../styles/variables.styled";
 
 export const ExerciseDiv = styled.div`
     overflow-y: auto;
-    max-height: 400px;
+    max-height: calc(100vh - 220px);
     max-width: 75vw;
     width: 100%;
 `;
