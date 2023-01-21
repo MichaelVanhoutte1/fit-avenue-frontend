@@ -24,6 +24,9 @@ export const ActionDiv = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 0 1rem ;
+    img{
+        margin: auto 0;
+    }
 `;
 
 export const SelectDiv = styled.div`

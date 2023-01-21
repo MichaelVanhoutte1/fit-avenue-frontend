@@ -1,16 +1,17 @@
-import {  ValueText, ValueDiv, ExerciseDiv, ExerciseName } from "./styles";
+import { SearchDiv, Search } from "./styles";
 import Image from "next/image";
 
-interface Props {
-
-}
+interface Props {}
 
 const Searchbar = (props: Props) => {
-    const {  } = props;
+    const {} = props;
 
     return (
         <>
-            <input type="text" placeholder="Search" />
+            <SearchDiv>
+                <Image src="/images/icons/search.svg" alt="Search" width='20' height='20' />
+                <Search type="text" placeholder="Search" />
+            </SearchDiv>
         </>
     );
 };

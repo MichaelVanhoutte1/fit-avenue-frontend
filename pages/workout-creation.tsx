@@ -32,10 +32,10 @@ export default function Statistics() {
                 <ActionDiv>
                     <Searchbar />
                     <Image
-                        src="/images/icons/arrow-left.svg"
+                        src="/images/icons/filter.svg"
                         alt="profile"
-                        width={20}
-                        height={20}
+                        width={25}
+                        height={25}
                     />
                 </ActionDiv>
             </HeadDiv>

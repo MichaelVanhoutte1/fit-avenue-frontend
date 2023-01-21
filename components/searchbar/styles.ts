@@ -1,17 +1,29 @@
 import styled from "styled-components";
 import { colors } from "../../styles/variables.styled";
 
-export const ExerciseDiv = styled.div`
+export const SearchDiv = styled.div`
     width: fill-available;
     display: flex;
-    border: 2px solid ${colors.bordergray};
-    background-color: ${colors.whiteText};
-    padding: 1rem;
-    margin: 1rem 1rem 0 1rem;
+    background-color: transparent;
+    position: relative;
+    img{
+        position: absolute;
+        top: 5px;
+    }
 `;
 
-export const ValueDiv = styled.div`
-    margin-left: 1rem;
+export const Search = styled.input`
+    width: 100%;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    color: ${colors.extralightpurple};
+    outline: none;
+    &::placeholder{
+        color: ${colors.extralightpurple};
+    }
 `;
 
 export const ValueText = styled.p`
