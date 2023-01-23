@@ -38,7 +38,15 @@ export const SelectDiv = styled.div`
 `;
 
 export const OverflowDiv = styled.div`
-    overflow-x: auto;
+    overflow-x: scroll;
+    ::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: ${colors.darkblueText};
+    }
 `;
 
 export const SubTitle = styled.p`

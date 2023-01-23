@@ -1,5 +1,6 @@
 import Exercise from "../exercise";
-import { ExerciseDiv } from "./styles";
+import Title from "../title";
+import { ExerciseDiv, TitleDiv } from "./styles";
 
 interface Props {}
 
@@ -9,6 +10,9 @@ const ExerciseLibrary = (props: Props) => {
     return (
         <>
             <ExerciseDiv>
+                <TitleDiv>
+                    <Title isSmall content="library" />
+                </TitleDiv>
                 <Exercise
                     forLibrary
                     name="Bench Press"

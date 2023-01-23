@@ -4,7 +4,8 @@ import { colors } from "../../styles/variables.styled";
 export const ExerciseDiv = styled.div`
     width: fill-available;
     display: flex;
-    border: 2px solid ${colors.bordergray};
+    border-bottom: 1px solid ${colors.bordergray};
+    border-right: 1px solid ${colors.bordergray};
     background-color: ${colors.whiteText};
     padding: 1rem;
     margin: 1rem 1rem 0 1rem;
