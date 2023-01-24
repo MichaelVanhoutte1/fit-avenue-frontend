@@ -1,3 +1,4 @@
+import ExerciseConfiguration from "../components/exercise-configuration";
 import ExerciseLibrary from "../components/exercise-library";
 import Searchbar from "../components/searchbar";
 import SelectedExercises from "../components/selected-exercises";
@@ -44,6 +45,7 @@ export default function Statistics() {
                     <ExerciseLibrary />
                     <SelectedExercises />
                 </SelectDiv>
+                <ExerciseConfiguration src='/images/icons/calendar' alt='dsdf' />
             </OverflowDiv>
         </>
     );
