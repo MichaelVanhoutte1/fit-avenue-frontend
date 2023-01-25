@@ -3,6 +3,9 @@ import { colors } from "../../styles/variables.styled";
 
 export const ExerciseDiv = styled.div`
     width: fill-available;
+    border: 1px solid ${colors.bordergray};
+    margin: 1rem .5rem 1rem 0;
+    background-color: white;
 `;
 
 export const ValueDiv = styled.div`
@@ -62,6 +65,7 @@ export const RemoveButton = styled.button`
     padding: 1rem;
     text-transform: uppercase;
     font-size: 1rem;
+    background: transparent;
     color: ${colors.darkblueText};
     font-weight: 600;
 `;
@@ -70,6 +74,7 @@ export const AddSetButton = styled.button`
     border-top: 1px solid ${colors.bordergray};
     border-left: 1px solid ${colors.bordergray};
     width: 50%;
+    background: transparent;
     padding: 1rem;
     text-transform: uppercase;
     font-size: 1rem;
