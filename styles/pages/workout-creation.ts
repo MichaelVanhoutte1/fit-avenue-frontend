@@ -16,6 +16,7 @@ export const TitleDiv = styled.div`
 `;
 
 export const ImageDiv = styled.div`
+    display: flex;
     margin: 0 0 0 1rem;
 `;
 
@@ -81,13 +82,13 @@ export const TagDiv = styled.div`
 `;
 
 export const MuscleGroupsDiv = styled.div`
-    margin: .5rem 0 1rem 0;
+    margin: 0.5rem 0 1rem 0;
     padding-top: 1rem;
 `;
 
 export const ExercisesDiv = styled.div`
-border-top: 1px solid ${colors.bordergray};
-    margin: .5rem 0 1rem 0;
+    border-top: 1px solid ${colors.bordergray};
+    margin: 0.5rem 0 1rem 0;
     padding-top: 1rem;
 `;
 
@@ -95,4 +96,16 @@ export const MainImage = styled.img`
     width: 70%;
     display: block;
     margin: 1rem auto 0 auto;
+`;
+
+export const NextButton = styled.button`
+    background: transparent;
+    margin: 0 1rem 0 auto;
+    color: ${colors.purple};
+`;
+
+export const FinishButton = styled.button`
+    background: transparent;
+    margin: 0 1rem 0 auto;
+    color: ${colors.purple};
 `;
