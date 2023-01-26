@@ -1,7 +1,9 @@
+import Exercise from "../components/exercise";
 import ExerciseConfiguration from "../components/exercise-configuration";
 import ExerciseLibrary from "../components/exercise-library";
 import Searchbar from "../components/searchbar";
 import SelectedExercises from "../components/selected-exercises";
+import Tag from "../components/tag";
 import Title from "../components/title";
 import {
     ActionDiv,
@@ -14,6 +16,10 @@ import {
     ConfigDiv,
     SuperSetCheckbox,
     ConfigSelectDiv,
+    MainImage,
+    MuscleGroupsDiv,
+    TagDiv,
+    ExercisesDiv,
 } from "../styles/pages/workout-creation";
 import Image from "next/image";
 
@@ -46,7 +52,7 @@ export default function Statistics() {
                 </SelectDiv>
             </OverflowDiv> */}
             {/* step 2 */}
-            <ConfigSelectDiv>
+            {/* <ConfigSelectDiv>
                 <ConfigDiv>
                     <SuperSetCheckbox type="checkbox" />
                     <ExerciseConfiguration src="/images/icons/calendar" alt="dsdf" />
@@ -55,7 +61,25 @@ export default function Statistics() {
                     <SuperSetCheckbox type="checkbox" />
                     <ExerciseConfiguration src="/images/icons/calendar" alt="dsdf" />
                 </ConfigDiv>
-            </ConfigSelectDiv>
+            </ConfigSelectDiv> */}
+            {/* step 3 */}
+            <MuscleGroupsDiv>
+                <Title isSmall content="muscles involved" />
+                <MainImage src="/images/rand.jpg" alt="exercise" />
+                <TagDiv>
+                    <Tag name="Chest" />
+                    <Tag name="Deltoids" />
+                    <Tag name="Triceps" />
+                </TagDiv>
+            </MuscleGroupsDiv>
+            <ExercisesDiv>
+                <Title isSmall content="exercises" />
+                <Exercise isDropdown name="Bench Press" src="/images/icons/calendar.svg" alt="stuff"/>
+                <Exercise isDropdown name="Bench Press" src="/images/icons/calendar.svg" alt="stuff"/>
+                <Exercise isDropdown name="Bench Press" src="/images/icons/calendar.svg" alt="stuff"/>
+                <Exercise isDropdown name="Bench Press" src="/images/icons/calendar.svg" alt="stuff"/>
+                <Exercise isDropdown name="Bench Press" src="/images/icons/calendar.svg" alt="stuff"/>
+            </ExercisesDiv>
         </>
     );
 }

@@ -73,3 +73,26 @@ export const SuperSetCheckbox = styled.input`
     color-scheme: none;
     border: 1px solid ${colors.bordergray};
 `;
+
+export const TagDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+`;
+
+export const MuscleGroupsDiv = styled.div`
+    margin: .5rem 0 1rem 0;
+    padding-top: 1rem;
+`;
+
+export const ExercisesDiv = styled.div`
+border-top: 1px solid ${colors.bordergray};
+    margin: .5rem 0 1rem 0;
+    padding-top: 1rem;
+`;
+
+export const MainImage = styled.img`
+    width: 70%;
+    display: block;
+    margin: 1rem auto 0 auto;
+`;

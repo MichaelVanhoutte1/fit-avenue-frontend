@@ -15,10 +15,11 @@ interface Props {
     src: string;
     alt: string;
     forLibrary?: boolean;
+    isDropdown?: boolean;
 }
 
 const Exercise = (props: Props) => {
-    const { src, alt, name, forLibrary } = props;
+    const { src, alt, name, forLibrary, isDropdown } = props;
 
     return (
         <>
@@ -37,7 +38,17 @@ const Exercise = (props: Props) => {
                     <Image src='/images/icons/plus.svg' alt='Add exercise' width="20" height="20" />
                     </ImageDiv>
                 </ExerciseDiv>
-            ) : (
+            ) : isDropdown ? 
+            (
+                <ExerciseDiv>
+                    <Image src={src} alt={alt} width="30" height="30" />
+                    <ValueDiv>
+                        <ExerciseName>{name}</ExerciseName>
+                    </ValueDiv>
+                    <Image src="/images/icons/arrowhead-down.svg" alt="dropdown" width="30" height="30" />
+                </ExerciseDiv>
+            )
+            : (
                 <ExerciseDiv>
                     <Image src={src} alt={alt} width="30" height="30" />
                     <ValueDiv>
