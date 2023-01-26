@@ -23,6 +23,11 @@ import {
     ExercisesDiv,
     FinishButton,
     NextButton,
+    SwitchInput,
+    Label,
+    SwitchDiv,
+    NameInput,
+    WorkoutNameInputDiv,
 } from "../styles/pages/workout-creation";
 import Image from "next/image";
 
@@ -48,12 +53,34 @@ export default function Statistics() {
                     )}
                 </ImageDiv>
                 <TitleDiv>
-                    <Title isWhite content="Add exercises" />
-                    <SubTitle>Workout creation</SubTitle>
+                    <Title
+                        isWhite
+                        content={step === 1 ? "Add Exercises" : step === 2 ? "Add Sets" : "Summary"}
+                    />
+                    {step !== 3 ?? <SubTitle>Workout creation</SubTitle>}
                 </TitleDiv>
                 <ActionDiv>
-                    <Searchbar />
-                    <Image src="/images/icons/filter.svg" alt="profile" width={25} height={25} />
+                    {step === 1 ? (
+                        <>
+                            <Searchbar />
+                            <Image
+                                src="/images/icons/filter.svg"
+                                alt="profile"
+                                width={25}
+                                height={25}
+                            />
+                        </>
+                    ) : step === 2 ? (
+                        <SwitchDiv>
+                            <Label for="restTimer">Enable rest timer</Label>
+                            <SwitchInput id="restTimer" type="checkbox" />
+                        </SwitchDiv>
+                    ) : (
+                        <WorkoutNameInputDiv>
+                            <Label for="workoutName">Workout name</Label>
+                            <NameInput placeholder="My new workout" id="workoutName" type="text" />
+                        </WorkoutNameInputDiv>
+                    )}
                 </ActionDiv>
             </HeadDiv>
             {step === 1 ? (

@@ -3,6 +3,7 @@ import { breakpoints, colors } from "../variables.styled";
 
 export const HeadDiv = styled.div`
     padding: 1rem 0 0 0;
+    min-height: 175px;
     justify-content: space-between;
     background: -webkit-linear-gradient(325deg, rgb(62, 73, 163) 0%, rgb(49, 58, 117) 50%);
     background: -o-linear-gradient(325deg, rgb(62, 73, 163) 0%, rgb(49, 58, 117) 50%);
@@ -108,4 +109,34 @@ export const FinishButton = styled.button`
     background: transparent;
     margin: 0 1rem 0 auto;
     color: ${colors.purple};
+`;
+
+export const SwitchInput = styled.input``;
+
+export const Label = styled.label`
+    color: ${colors.whiteText};
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+`;
+
+export const SwitchDiv = styled.div`
+    margin: auto 0 auto auto;
+`;
+
+export const NameInput = styled.input`
+    background: transparent;
+    border: none;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 300;
+    outline: none;
+`;
+
+export const WorkoutNameInputDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 2px solid ${colors.purple};
+    padding-bottom: 1rem;
 `;
