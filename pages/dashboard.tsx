@@ -22,12 +22,14 @@ export default function Dashboard() {
             <DashboardPreviousWorkout />
             <WorkoutsDiv>
                 <WorkoutHeadDiv>
-                <Title isSmall content="My workouts" />
-                    <Link href='/workouts'>
-                    <WorkoutsButton>Show all</WorkoutsButton>
+                    <Title isSmall content="My workouts" />
+                    <Link href="/workouts">
+                        <WorkoutsButton>Show all</WorkoutsButton>
                     </Link>
                 </WorkoutHeadDiv>
-                <WorkoutChart/>
+                <Link href="/workout/1">
+                    <WorkoutChart />
+                </Link>
             </WorkoutsDiv>
         </>
     );

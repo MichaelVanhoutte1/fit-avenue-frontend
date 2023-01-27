@@ -10,14 +10,29 @@ import {
 } from "../../styles/pages/exercise.styled";
 import Title from "../../components/title";
 import Tag from "../../components/tag";
+import Link from "next/link";
 
 export default function Exercise() {
     return (
         <>
             <HeadDiv>
                 <ImageDiv>
-                    <Image src="/images/icons/arrow-left.svg" alt="back" width={20} height={20} />
-                    <Image src="/images/icons/plus.svg" alt="add exercise" width={20} height={20} />
+                    <Link href="/workouts">
+                        <Image
+                            src="/images/icons/arrow-left.svg"
+                            alt="back"
+                            width={20}
+                            height={20}
+                        />
+                    </Link>
+                    <Link href="/workout-creation">
+                        <Image
+                            src="/images/icons/plus.svg"
+                            alt="add exercise"
+                            width={20}
+                            height={20}
+                        />
+                    </Link>
                 </ImageDiv>
             </HeadDiv>
             <Title content="Bench press" />
@@ -32,7 +47,15 @@ export default function Exercise() {
             </MuscleGroupsDiv>
             <AboutDiv>
                 <Title isSmall content="about" />
-                <Text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit sunt soluta assumenda adipisci veritatis commodi cum atque maxime saepe fuga accusantium, necessitatibus voluptates praesentium laudantium nam sint eius asperiores reiciendis? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, dignissimos magnam illum soluta nobis nihil architecto? Aut natus repudiandae impedit quae incidunt, cumque dicta illo dolor excepturi eius, quas voluptatum!</Text>
+                <Text>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit sunt
+                    soluta assumenda adipisci veritatis commodi cum atque maxime saepe fuga
+                    accusantium, necessitatibus voluptates praesentium laudantium nam sint eius
+                    asperiores reiciendis? Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Quia, dignissimos magnam illum soluta nobis nihil architecto? Aut natus
+                    repudiandae impedit quae incidunt, cumque dicta illo dolor excepturi eius, quas
+                    voluptatum!
+                </Text>
             </AboutDiv>
         </>
     );

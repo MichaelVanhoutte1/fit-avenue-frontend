@@ -30,6 +30,7 @@ import {
     WorkoutNameInputDiv,
 } from "../styles/pages/workout-creation";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Statistics() {
     const [step, setStep] = useState(1);
@@ -38,13 +39,24 @@ export default function Statistics() {
         <>
             <HeadDiv>
                 <ImageDiv>
-                    <Image
-                        onClick={() => setStep(step - 1)}
-                        src="/images/icons/arrow-left.svg"
-                        alt="profile"
-                        width={20}
-                        height={20}
-                    />
+                    {step === 1 ? (
+                        <Link href="/workouts">
+                            <Image
+                                src="/images/icons/arrow-left.svg"
+                                alt="profile"
+                                width={20}
+                                height={20}
+                            />
+                        </Link>
+                    ) : (
+                        <Image
+                            onClick={() => setStep(step - 1)}
+                            src="/images/icons/arrow-left.svg"
+                            alt="profile"
+                            width={20}
+                            height={20}
+                        />
+                    )}
 
                     {step === 3 ? (
                         <FinishButton>Finish</FinishButton>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Exercise from "../../components/exercise";
 import Title from "../../components/title";
 import WorkoutChart from "../../components/workout/chart";
@@ -11,21 +12,55 @@ export default function WorkoutSpecific() {
         <>
             <HeadDiv>
                 <ImageDiv>
-                    <Image
-                        src="/images/icons/arrow-left.svg"
-                        alt="profile"
-                        width={20}
-                        height={20}
-                    />
+                    <Link href="/workouts">
+                        <Image
+                            src="/images/icons/arrow-left.svg"
+                            alt="profile"
+                            width={20}
+                            height={20}
+                        />
+                    </Link>
                 </ImageDiv>
                 <WorkoutChart isHeader />
             </HeadDiv>
             <WorkoutSummary />
             <ExerciseDiv>
                 <Title isSmall content="exercises" />
-                <Exercise src="/images/icons/checkmark.svg" alt="something" name="Bench press" />
-                <Exercise src="/images/icons/checkmark.svg" alt="something" name="Bench press" />
-                <Exercise src="/images/icons/checkmark.svg" alt="something" name="Bench press" />
+                <Link href="/exercise/1">
+                    <Exercise
+                        src="/images/icons/checkmark.svg"
+                        alt="something"
+                        name="Bench press"
+                    />
+                </Link>
+                <Link href="/exercise/1">
+                    <Exercise
+                        src="/images/icons/checkmark.svg"
+                        alt="something"
+                        name="Bench press"
+                    />
+                </Link>
+                <Link href="/exercise/1">
+                    <Exercise
+                        src="/images/icons/checkmark.svg"
+                        alt="something"
+                        name="Bench press"
+                    />
+                </Link>
+                <Link href="/exercise/1">
+                    <Exercise
+                        src="/images/icons/checkmark.svg"
+                        alt="something"
+                        name="Bench press"
+                    />
+                </Link>
+                <Link href="/exercise/1">
+                    <Exercise
+                        src="/images/icons/checkmark.svg"
+                        alt="something"
+                        name="Bench press"
+                    />
+                </Link>
             </ExerciseDiv>
         </>
     );

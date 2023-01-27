@@ -7,7 +7,7 @@ export const SummaryElement = styled.div`
     padding-left: 1rem;
     display: flex;
     height: 5rem;
-    border: 2px solid ${colors.bordergray}
+    border: 1px solid ${colors.bordergray}
 `;
 
 export const ValueDiv = styled.div`
