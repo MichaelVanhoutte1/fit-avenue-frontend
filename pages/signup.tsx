@@ -9,9 +9,8 @@ import {
     ActionDiv,
     HeadDiv,
 } from "../styles/pages/login.styled";
-import Link from "next/link";
 
-export default function Login() {
+export default function SignUp() {
     return (
         <>
                 <HeadDiv>
@@ -20,10 +19,10 @@ export default function Login() {
                     <SubTitle>Sign up to continue</SubTitle>
                 </HeadDiv>
                 <ActionDiv>
-                    <Link href='signup'><SignUpButton>sign up</SignUpButton></Link>
+                    <SignUpButton>sign up</SignUpButton>
                     <SignUpFacebookButton>sign up with facebook</SignUpFacebookButton>
                     <SignInTitle>Already have an account?</SignInTitle>
-                    <Link href='/signin'><SignInButton>sign in</SignInButton></Link>
+                    <SignInButton>sign in</SignInButton>
                 </ActionDiv>
         </>
     );
