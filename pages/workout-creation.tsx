@@ -28,7 +28,7 @@ import {
     SwitchDiv,
     NameInput,
     WorkoutNameInputDiv,
-} from "../styles/pages/workout-creation";
+} from "../styles/pages/workout-creation.styled.tsx";
 import Image from "next/image";
 import Link from "next/link";
 

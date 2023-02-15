@@ -20,7 +20,7 @@ export default function Login() {
                     <SubTitle>Sign up to continue</SubTitle>
                 </HeadDiv>
                 <ActionDiv>
-                    <Link href='signup'><SignUpButton>sign up</SignUpButton></Link>
+                    <Link href='/signup'><SignUpButton>sign up</SignUpButton></Link>
                     <SignUpFacebookButton>sign up with facebook</SignUpFacebookButton>
                     <SignInTitle>Already have an account?</SignInTitle>
                     <Link href='/signin'><SignInButton>sign in</SignInButton></Link>

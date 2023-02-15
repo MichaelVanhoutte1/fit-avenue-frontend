@@ -3,7 +3,7 @@ import Exercise from "../../components/exercise";
 import Title from "../../components/title";
 import WorkoutChart from "../../components/workout/chart";
 import WorkoutSummary from "../../components/workout/summary";
-import { ExerciseDiv, HeadDiv, ImageDiv } from "../../styles/pages/workout";
+import { ExerciseDiv, HeadDiv, ImageDiv } from "../../styles/pages/workout.styled";
 
 import Image from "next/image";
 

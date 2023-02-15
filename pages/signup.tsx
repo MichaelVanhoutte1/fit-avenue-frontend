@@ -1,29 +1,38 @@
+import Link from "next/link";
 import Logo from "../components/logo";
 import {
-    Title,
-    SubTitle,
-    SignUpButton,
-    SignUpFacebookButton,
-    SignInTitle,
-    SignInButton,
     ActionDiv,
     HeadDiv,
-} from "../styles/pages/login.styled";
+    InputDiv,
+    Label,
+    PasswordInput,
+    SignInButton,
+    Title,
+    UserNameInput,
+} from "../styles/pages/signup.styled";
 
-export default function SignUp() {
+export default function SignIn() {
     return (
         <>
-                <HeadDiv>
-                    <Logo />
-                    <Title>Welcome to Fit Avenue</Title>
-                    <SubTitle>Sign up to continue</SubTitle>
-                </HeadDiv>
-                <ActionDiv>
-                    <SignUpButton>sign up</SignUpButton>
-                    <SignUpFacebookButton>sign up with facebook</SignUpFacebookButton>
-                    <SignInTitle>Already have an account?</SignInTitle>
-                    <SignInButton>sign in</SignInButton>
-                </ActionDiv>
+            <HeadDiv>
+                <Logo />
+                <Title>Sign up</Title>
+            </HeadDiv>
+            <ActionDiv>
+                <InputDiv>
+                    <Label htmlFor="username">Username</Label>
+                    <UserNameInput placeholder="John Doe" id="username" type="text" />
+                </InputDiv>
+                <InputDiv>
+                    <Label htmlFor="password">Password</Label>
+                    <PasswordInput placeholder="Enter your password" id="pasword" type="password" />
+                </InputDiv>
+                <InputDiv>
+                    <Label htmlFor="confirmpassword">Password</Label>
+                    <PasswordInput placeholder="Repeat your password" id="confirmpasword" type="password" />
+                </InputDiv>
+                <Link href='/dashboard'><SignInButton>Create account</SignInButton></Link>
+            </ActionDiv>
         </>
     );
 }

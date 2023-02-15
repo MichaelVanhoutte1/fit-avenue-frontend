@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Title from "../components/title";
 import WorkoutChart from "../components/workout/chart";
-import { ActionButton, ActionDiv, HeadDiv, WorkoutsDiv } from "../styles/pages/workouts";
+import { ActionButton, ActionDiv, HeadDiv, WorkoutsDiv } from "../styles/pages/workouts.styled";
 import Link from "next/link";
 
 export default function WorkoutCharts() {
