@@ -12,6 +12,7 @@ import cs from 'classnames'
 
 interface Props {
     name: string;
+    label: string
     src: string;
     alt: string;
     forLibrary?: boolean;
@@ -19,7 +20,7 @@ interface Props {
 }
 
 const Exercise = (props: Props) => {
-    const { src, alt, name, forLibrary, isDropdown } = props;
+    const { src, alt, name, label, forLibrary, isDropdown } = props;
 
     return (
         <>
@@ -29,9 +30,7 @@ const Exercise = (props: Props) => {
                     <ValueDiv>
                         <ExerciseName>{name}</ExerciseName>
                         <MuscleGroupsDiv>
-                            <BoxLabel>Chest</BoxLabel>
-                            <BoxLabel>Triceps</BoxLabel>
-                            <BoxLabel>Deltoids</BoxLabel>
+                            <BoxLabel>{label}</BoxLabel>
                         </MuscleGroupsDiv>
                     </ValueDiv>
                     <ImageDiv>
