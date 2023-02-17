@@ -20,6 +20,7 @@ const ExerciseLibrary = (props: Props) => {
 
     const renderRow = (row: object) => (
         <>
+            {console.log(row)}
             <Exercise
                 forLibrary
                 name={data[row.index].name}
