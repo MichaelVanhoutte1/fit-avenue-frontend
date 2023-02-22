@@ -99,7 +99,6 @@ export default function Statistics() {
                 <OverflowDiv>
                     <SelectDiv>
                         <ExerciseLibrary />
-                        <SelectedExercises />
                     </SelectDiv>
                 </OverflowDiv>
             ) : step === 2 ? (

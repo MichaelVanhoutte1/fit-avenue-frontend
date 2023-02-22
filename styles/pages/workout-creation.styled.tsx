@@ -36,7 +36,6 @@ export const SelectDiv = styled.div`
     max-height: calc(100vh -160px);
     height: calc(100vh -160px);
     width: max-content;
-    white-space: nowrap;
 `;
 
 export const OverflowDiv = styled.div`

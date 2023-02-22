@@ -2,7 +2,7 @@ import Exercise from "../exercise";
 import Title from "../title";
 import { ExerciseDiv, TitleDiv } from "./styles";
 import data from "../../data/exercises.json";
-import { List } from "react-virtualized";
+import RenderIfVisible from "react-render-if-visible";
 
 interface Props {}
 
@@ -18,34 +18,24 @@ interface Exercise {
 const ExerciseLibrary = (props: Props) => {
     const {} = props;
 
-    const renderRow = (row: object) => (
-        <>
-            {console.log(row)}
-            <Exercise
-                forLibrary
-                name={data[row.index].name}
-                src={data[row.index].gifUrl}
-                alt={data[row.index].name + " exercise image"}
-                key={data[row.index].id}
-                label={data[row.index].bodyPart}
-            />
-        </>
-    );
-
     return (
         <>
             <ExerciseDiv>
                 <TitleDiv>
                     <Title isSmall content="library" />
                 </TitleDiv>
-                <List
-                    width={1200}
-                    height={435}
-                    // @ts-ignore
-                    rowRenderer={renderRow}
-                    rowCount={data.length}
-                    rowHeight={84}
-                />
+                {data.map((item) => (
+                    <RenderIfVisible defaultHeight={84}>
+                        <Exercise
+                            forLibrary
+                            name={item.name}
+                            src={item.gifUrl}
+                            alt={item.name + " exercise image"}
+                            key={item.id}
+                            label={item.bodyPart}
+                        />
+                    </RenderIfVisible>
+                ))}
             </ExerciseDiv>
         </>
     );

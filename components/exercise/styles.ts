@@ -15,6 +15,7 @@ export const ExerciseDiv = styled.div`
 
 export const ValueDiv = styled.div`
     margin: auto auto auto 1rem;
+
 `;
 
 export const ValueText = styled.p`

@@ -4,16 +4,15 @@ import { colors } from "../../styles/variables.styled";
 export const ExerciseDiv = styled.div`
     overflow-y: scroll;
     max-height: calc(100vh - 231.6px);
-    max-width: 75vw;
-    width: 100%;
+    width: 100vw;
     ::-webkit-scrollbar {
         width: 6px;
     }
-    
+
     ::-webkit-scrollbar-track {
         background: ${colors.bordergray};
     }
-    
+
     ::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background: ${colors.darkblueText};
