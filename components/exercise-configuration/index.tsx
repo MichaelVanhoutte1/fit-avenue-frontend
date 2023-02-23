@@ -14,24 +14,23 @@ import {
     ExerciseTitle,
 } from "./styles";
 import Image from "next/image";
-import cs from "classnames";
-import Title from "../title";
+import { ExerciseType } from "../exercise-library";
 
 interface Props {
-    src: string;
-    alt: string;
+    exerciseData: ExerciseType;
 }
 
 const ExerciseConfiguration = (props: Props) => {
-    const { src, alt } = props;
+    const { exerciseData } = props;
+    const { name, gifUrl } = exerciseData;
 
     return (
         <>
             <ExerciseDiv>
                 <HeadDiv>
                     <ExerciseTitleDiv>
-                        <Image src={src} alt={alt} width="30" height="30" />
-                        <ExerciseTitle>Deadlift </ExerciseTitle>
+                        <Image src={gifUrl} alt={name + 'exercise image'} width="30" height="30" />
+                        <ExerciseTitle>{name}</ExerciseTitle>
                     </ExerciseTitleDiv>
                     <Image
                         src={"/images/icons/hamburger.svg"}
@@ -43,24 +42,24 @@ const ExerciseConfiguration = (props: Props) => {
                 <ConfigurationDiv>
                     <SetText>set 1</SetText>
                     <ValueDiv>
-                        <InputValue value="8" type="number" />
+                        <InputValue placeholder="8" type="number" />
                         <UnitText>reps</UnitText>
                     </ValueDiv>
                     <Divider>*</Divider>
                     <ValueDiv>
-                        <InputValue value="80" type="number" />
+                        <InputValue placeholder="80" type="number" />
                         <UnitText>kg</UnitText>
                     </ValueDiv>
                 </ConfigurationDiv>
                 <ConfigurationDiv>
                     <SetText>set 1</SetText>
                     <ValueDiv>
-                        <InputValue value="8" type="number" />
+                        <InputValue placeholder="8" type="number" />
                         <UnitText>reps</UnitText>
                     </ValueDiv>
                     <Divider>*</Divider>
                     <ValueDiv>
-                        <InputValue value="80" type="number" />
+                        <InputValue placeholder="80" type="number" />
                         <UnitText>kg</UnitText>
                     </ValueDiv>
                 </ConfigurationDiv>

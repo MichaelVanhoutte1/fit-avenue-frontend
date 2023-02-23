@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Exercise from "../components/exercise";
 import ExerciseConfiguration from "../components/exercise-configuration";
 import ExerciseLibrary, { ExerciseType } from "../components/exercise-library";
@@ -35,7 +35,20 @@ import data from "../data/exercises.json";
 export default function Statistics() {
     const [step, setStep] = useState(1);
     const [selectedExercises, setSelectedExercises] = useState<Array<ExerciseType>>([]);
+    const [selectedExercisesTargets, setSelectedExercisesTargets] = useState<string[]>([]);
     const [filteredExercises, setFilteredExercises] = useState<Array<ExerciseType>>(data);
+
+    const getSelectedExerciseTargets = () => {
+        const targets = new Set<string>();
+        selectedExercises.forEach((exercise) => {
+            targets.add(exercise.target);
+        });
+        setSelectedExercisesTargets(Array.from(targets));
+    };
+
+    useEffect(() => {
+        getSelectedExerciseTargets();
+    }, [selectedExercises]);
 
     return (
         <>
@@ -76,7 +89,10 @@ export default function Statistics() {
                 <ActionDiv>
                     {step === 1 ? (
                         <>
-                            <Searchbar unFilteredExercises={data} setFilteredExercises={setFilteredExercises} />
+                            <Searchbar
+                                unFilteredExercises={data}
+                                setFilteredExercises={setFilteredExercises}
+                            />
                             <Image
                                 src="/images/icons/filter.svg"
                                 alt="profile"
@@ -109,14 +125,12 @@ export default function Statistics() {
                 </OverflowDiv>
             ) : step === 2 ? (
                 <ConfigSelectDiv>
-                    <ConfigDiv>
-                        <SuperSetCheckbox type="checkbox" />
-                        <ExerciseConfiguration src="/images/icons/calendar" alt="dsdf" />
-                    </ConfigDiv>
-                    <ConfigDiv>
-                        <SuperSetCheckbox type="checkbox" />
-                        <ExerciseConfiguration src="/images/icons/calendar" alt="dsdf" />
-                    </ConfigDiv>
+                    {selectedExercises.map((exercise) => (
+                        <ConfigDiv>
+                            <SuperSetCheckbox type="checkbox" />
+                            <ExerciseConfiguration exerciseData={exercise} />
+                        </ConfigDiv>
+                    ))}
                 </ConfigSelectDiv>
             ) : (
                 <>
@@ -124,9 +138,9 @@ export default function Statistics() {
                         <Title isSmall content="muscles involved" />
                         <MainImage src="/images/rand.jpg" alt="exercise" />
                         <TagDiv>
-                            <Tag name="Chest" />
-                            <Tag name="Deltoids" />
-                            <Tag name="Triceps" />
+                            {selectedExercisesTargets.map((target) => (
+                                <Tag name={target} />
+                            ))}
                         </TagDiv>
                     </MuscleGroupsDiv>
                     <ExercisesDiv>

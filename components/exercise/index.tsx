@@ -35,7 +35,6 @@ const Exercise = (props: Props) => {
         if (selectedExercises && setSelectedExercises) {
             if (!selectedExercises.includes(exerciseData)) {
                 setSelectedExercises([...selectedExercises, exerciseData]);
-                console.log(selectedExercises);
             } else {
                 setSelectedExercises(selectedExercises.filter((item) => item !== exerciseData));
             }
