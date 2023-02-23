@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Exercise from "../components/exercise";
 import ExerciseConfiguration from "../components/exercise-configuration";
-import ExerciseLibrary from "../components/exercise-library";
+import ExerciseLibrary, { ExerciseType } from "../components/exercise-library";
 import Searchbar from "../components/searchbar";
-import SelectedExercises from "../components/selected-exercises";
 import Tag from "../components/tag";
 import Title from "../components/title";
 import {
@@ -28,12 +27,15 @@ import {
     SwitchDiv,
     NameInput,
     WorkoutNameInputDiv,
-} from "../styles/pages/workout-creation.styled.tsx";
+} from "../styles/pages/workout-creation.styled";
 import Image from "next/image";
 import Link from "next/link";
+import data from "../data/exercises.json";
 
 export default function Statistics() {
     const [step, setStep] = useState(1);
+    const [selectedExercises, setSelectedExercises] = useState<Array<ExerciseType>>([]);
+    const [filteredExercises, setFilteredExercises] = useState<Array<ExerciseType>>(data);
 
     return (
         <>
@@ -74,7 +76,7 @@ export default function Statistics() {
                 <ActionDiv>
                     {step === 1 ? (
                         <>
-                            <Searchbar />
+                            <Searchbar unFilteredExercises={data} setFilteredExercises={setFilteredExercises} />
                             <Image
                                 src="/images/icons/filter.svg"
                                 alt="profile"
@@ -84,12 +86,12 @@ export default function Statistics() {
                         </>
                     ) : step === 2 ? (
                         <SwitchDiv>
-                            <Label for="restTimer">Enable rest timer</Label>
+                            <Label htmlFor="restTimer">Enable rest timer</Label>
                             <SwitchInput id="restTimer" type="checkbox" />
                         </SwitchDiv>
                     ) : (
                         <WorkoutNameInputDiv>
-                            <Label for="workoutName">Workout name</Label>
+                            <Label htmlFor="workoutName">Workout name</Label>
                             <NameInput placeholder="My new workout" id="workoutName" type="text" />
                         </WorkoutNameInputDiv>
                     )}
@@ -98,7 +100,11 @@ export default function Statistics() {
             {step === 1 ? (
                 <OverflowDiv>
                     <SelectDiv>
-                        <ExerciseLibrary />
+                        <ExerciseLibrary
+                            exerciseData={filteredExercises}
+                            selectedExercises={selectedExercises}
+                            setSelectedExercises={setSelectedExercises}
+                        />
                     </SelectDiv>
                 </OverflowDiv>
             ) : step === 2 ? (
@@ -125,36 +131,9 @@ export default function Statistics() {
                     </MuscleGroupsDiv>
                     <ExercisesDiv>
                         <Title isSmall content="exercises" />
-                        <Exercise
-                            isDropdown
-                            name="Bench Press"
-                            src="/images/icons/calendar.svg"
-                            alt="stuff"
-                        />
-                        <Exercise
-                            isDropdown
-                            name="Bench Press"
-                            src="/images/icons/calendar.svg"
-                            alt="stuff"
-                        />
-                        <Exercise
-                            isDropdown
-                            name="Bench Press"
-                            src="/images/icons/calendar.svg"
-                            alt="stuff"
-                        />
-                        <Exercise
-                            isDropdown
-                            name="Bench Press"
-                            src="/images/icons/calendar.svg"
-                            alt="stuff"
-                        />
-                        <Exercise
-                            isDropdown
-                            name="Bench Press"
-                            src="/images/icons/calendar.svg"
-                            alt="stuff"
-                        />
+                        {selectedExercises.map((exercise) => (
+                            <Exercise isDropdown exerciseData={exercise} />
+                        ))}
                     </ExercisesDiv>
                 </>
             )}

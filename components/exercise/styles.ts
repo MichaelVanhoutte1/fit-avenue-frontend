@@ -11,6 +11,9 @@ export const ExerciseDiv = styled.div`
     &.libraryExercise {
         margin: 0;
     }
+    &.isSelected {
+        background-color: ${colors.lightgray};
+    }
 `;
 
 export const ValueDiv = styled.div`

@@ -1,12 +1,15 @@
 import Exercise from "../exercise";
 import Title from "../title";
 import { ExerciseDiv, TitleDiv } from "./styles";
-import data from "../../data/exercises.json";
 import RenderIfVisible from "react-render-if-visible";
 
-interface Props {}
+interface Props {
+    exerciseData: ExerciseType[];
+    selectedExercises: ExerciseType[];
+    setSelectedExercises: (exercises: ExerciseType[]) => void;
+}
 
-interface Exercise {
+export interface ExerciseType {
     name: string;
     bodyPart: string;
     equipment: string;
@@ -16,7 +19,7 @@ interface Exercise {
 }
 
 const ExerciseLibrary = (props: Props) => {
-    const {} = props;
+    const { exerciseData, selectedExercises, setSelectedExercises } = props;
 
     return (
         <>
@@ -24,15 +27,14 @@ const ExerciseLibrary = (props: Props) => {
                 <TitleDiv>
                     <Title isSmall content="library" />
                 </TitleDiv>
-                {data.map((item) => (
+                {exerciseData.map((item) => (
                     <RenderIfVisible defaultHeight={84}>
                         <Exercise
                             forLibrary
-                            name={item.name}
-                            src={item.gifUrl}
-                            alt={item.name + " exercise image"}
-                            key={item.id}
-                            label={item.bodyPart}
+                            isSelected={selectedExercises.includes(item)}
+                            exerciseData={item}
+                            selectedExercises={selectedExercises}
+                            setSelectedExercises={setSelectedExercises}
                         />
                     </RenderIfVisible>
                 ))}
