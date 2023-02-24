@@ -4,7 +4,6 @@ import { colors } from "../../styles/variables.styled";
 export const Text = styled.h1`
     font-size: 1.8rem;
     font-weight: 500;
-    margin-left: 1rem;
     color: ${colors.blackText};
     &.small {
         text-transform: uppercase;

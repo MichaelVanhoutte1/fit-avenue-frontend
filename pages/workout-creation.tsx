@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
-import Exercise from "../components/exercise";
-import ExerciseConfiguration from "../components/exercise-configuration";
-import ExerciseLibrary, { ExerciseType } from "../components/exercise-library";
-import Searchbar from "../components/searchbar";
-import Tag from "../components/tag";
-import Title from "../components/title";
+import { useEffect, useState } from 'react'
+import Exercise from '../components/exercise'
+import ExerciseConfiguration from '../components/exercise-configuration'
+import ExerciseLibrary, { ExerciseType } from '../components/exercise-library'
+import Searchbar from '../components/searchbar'
+import Tag from '../components/tag'
+import Title from '../components/title'
+import Image from 'next/image'
+import Link from 'next/link'
+import exerciseData from '../data/exercises.json'
+import targetMuscleData from '../data/target-muscles.json'
+import equipmentData from '../data/equipment.json'
+import ReactModal from 'react-modal'
 import {
     ActionDiv,
     HeadDiv,
@@ -27,28 +33,29 @@ import {
     SwitchDiv,
     NameInput,
     WorkoutNameInputDiv,
-} from "../styles/pages/workout-creation.styled";
-import Image from "next/image";
-import Link from "next/link";
-import data from "../data/exercises.json";
+} from '../styles/pages/workout-creation.styled'
+import ExerciseFilter from '../components/exercise-filter'
 
 export default function Statistics() {
-    const [step, setStep] = useState(1);
-    const [selectedExercises, setSelectedExercises] = useState<Array<ExerciseType>>([]);
-    const [selectedExercisesTargets, setSelectedExercisesTargets] = useState<string[]>([]);
-    const [filteredExercises, setFilteredExercises] = useState<Array<ExerciseType>>(data);
+    const [step, setStep] = useState(1)
+    const [selectedExercises, setSelectedExercises] = useState<Array<ExerciseType>>([])
+    const [selectedExercisesTargets, setSelectedExercisesTargets] = useState<string[]>([])
+    const [selectedTargetMuscles, setSelectedTargetMuscles] = useState<string[]>([])
+    const [selectedEquipment, setSelectedEquipment] = useState<string[]>([])
+    const [filteredExercises, setFilteredExercises] = useState<Array<ExerciseType>>(exerciseData)
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
     const getSelectedExerciseTargets = () => {
-        const targets = new Set<string>();
+        const targets = new Set<string>()
         selectedExercises.forEach((exercise) => {
-            targets.add(exercise.target);
-        });
-        setSelectedExercisesTargets(Array.from(targets));
-    };
+            targets.add(exercise.target)
+        })
+        setSelectedExercisesTargets(Array.from(targets))
+    }
 
     useEffect(() => {
-        getSelectedExerciseTargets();
-    }, [selectedExercises]);
+        getSelectedExerciseTargets()
+    }, [selectedExercises])
 
     return (
         <>
@@ -56,49 +63,23 @@ export default function Statistics() {
                 <ImageDiv>
                     {step === 1 ? (
                         <Link href="/workouts">
-                            <Image
-                                src="/images/icons/arrow-left.svg"
-                                alt="profile"
-                                width={20}
-                                height={20}
-                            />
+                            <Image src="/images/icons/arrow-left.svg" alt="profile" width={20} height={20} />
                         </Link>
                     ) : (
-                        <Image
-                            onClick={() => setStep(step - 1)}
-                            src="/images/icons/arrow-left.svg"
-                            alt="profile"
-                            width={20}
-                            height={20}
-                        />
+                        <Image onClick={() => setStep(step - 1)} src="/images/icons/arrow-left.svg" alt="profile" width={20} height={20} />
                     )}
 
-                    {step === 3 ? (
-                        <FinishButton>Finish</FinishButton>
-                    ) : (
-                        <NextButton onClick={() => setStep(step + 1)}>Next</NextButton>
-                    )}
+                    {step === 3 ? <FinishButton>Finish</FinishButton> : <NextButton onClick={() => setStep(step + 1)}>Next</NextButton>}
                 </ImageDiv>
                 <TitleDiv>
-                    <Title
-                        isWhite
-                        content={step === 1 ? "Add Exercises" : step === 2 ? "Add Sets" : "Summary"}
-                    />
+                    <Title isWhite content={step === 1 ? 'Add Exercises' : step === 2 ? 'Add Sets' : 'Summary'} />
                     {step !== 3 ?? <SubTitle>Workout creation</SubTitle>}
                 </TitleDiv>
                 <ActionDiv>
                     {step === 1 ? (
                         <>
-                            <Searchbar
-                                unFilteredExercises={data}
-                                setFilteredExercises={setFilteredExercises}
-                            />
-                            <Image
-                                src="/images/icons/filter.svg"
-                                alt="profile"
-                                width={25}
-                                height={25}
-                            />
+                            <Searchbar unFilteredExercises={exerciseData} setFilteredExercises={setFilteredExercises} />
+                            <Image src="/images/icons/filter.svg" alt="profile" width={25} height={25} onClick={() => setIsModalOpen(true)} />
                         </>
                     ) : step === 2 ? (
                         <SwitchDiv>
@@ -114,15 +95,30 @@ export default function Statistics() {
                 </ActionDiv>
             </HeadDiv>
             {step === 1 ? (
-                <OverflowDiv>
-                    <SelectDiv>
-                        <ExerciseLibrary
-                            exerciseData={filteredExercises}
-                            selectedExercises={selectedExercises}
-                            setSelectedExercises={setSelectedExercises}
+                <>
+                    <ReactModal style={{ content: { inset: 0, height: '100vh', border: 'none', background: '#3c4789', borderRadius: 0 } }} isOpen={isModalOpen}>
+                        <ExerciseFilter
+                            unFilteredExercises={exerciseData}
+                            setFilteredExercises={setFilteredExercises}
+                            selectedEquipment={selectedEquipment}
+                            selectedTargetMuscles={selectedTargetMuscles}
+                            setSelectedEquipment={setSelectedEquipment}
+                            setSelectedTargetMuscles={setSelectedTargetMuscles}
+                            setIsModalOpen={setIsModalOpen}
+                            targetMuscleData={targetMuscleData}
+                            equipmentData={equipmentData}
                         />
-                    </SelectDiv>
-                </OverflowDiv>
+                    </ReactModal>
+                    <OverflowDiv>
+                        <SelectDiv>
+                            <ExerciseLibrary
+                                exerciseData={filteredExercises}
+                                selectedExercises={selectedExercises}
+                                setSelectedExercises={setSelectedExercises}
+                            />
+                        </SelectDiv>
+                    </OverflowDiv>
+                </>
             ) : step === 2 ? (
                 <ConfigSelectDiv>
                     {selectedExercises.map((exercise) => (
@@ -152,5 +148,5 @@ export default function Statistics() {
                 </>
             )}
         </>
-    );
+    )
 }

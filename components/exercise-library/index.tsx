@@ -28,7 +28,7 @@ const ExerciseLibrary = (props: Props) => {
                     <Title isSmall content="library" />
                 </TitleDiv>
                 {exerciseData.map((item) => (
-                    <RenderIfVisible defaultHeight={84}>
+                    <RenderIfVisible key={item.id} defaultHeight={84}>
                         <Exercise
                             forLibrary
                             isSelected={selectedExercises.includes(item)}

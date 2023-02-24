@@ -48,9 +48,9 @@ const Exercise = (props: Props) => {
                 >
                     <Image src={gifUrl} alt={name + "exercise image"} width="30" height="30" />
                     <ValueDiv>
-                        <ExerciseName>{name}</ExerciseName>
+                        <ExerciseName>{name.charAt(0).toUpperCase() + name.slice(1)}</ExerciseName>
                         <MuscleGroupsDiv>
-                            <BoxLabel>{target}</BoxLabel>
+                            <BoxLabel>{target.charAt(0).toUpperCase() + target.slice(1)}</BoxLabel>
                         </MuscleGroupsDiv>
                     </ValueDiv>
                     <ImageDiv>

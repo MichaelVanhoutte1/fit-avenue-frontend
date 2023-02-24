@@ -18,5 +18,6 @@ export const colors = {
     whiteText: `#fff`,
     blackText: `#27262b`,
     darkblueText: '#2a2e49',
+    mediumDarkBlue: '#475089',
     disabled: `#bdbdbd`,
 };
