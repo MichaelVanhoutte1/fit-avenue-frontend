@@ -4,17 +4,12 @@ import { SearchDiv, Search } from "./styles";
 import Image from "next/image";
 
 interface Props {
-    unFilteredExercises: ExerciseType[];
-    setFilteredExercises: (exercises: ExerciseType[]) => void;
+    setSearchValue: (value: string) => void;
 }
 
 const Searchbar = (props: Props) => {
-    const { unFilteredExercises, setFilteredExercises } = props;
-
-    const searchExercises = (value: string) => {
-        setFilteredExercises(unFilteredExercises.filter((item) => item.name.includes(value)));
-    };
-
+    const { setSearchValue } = props;
+    
     return (
         <>
             <SearchDiv>
@@ -22,7 +17,7 @@ const Searchbar = (props: Props) => {
                 <Search
                     type="text"
                     placeholder="Search"
-                    onChange={(e: ChangeEvent) => searchExercises((e.target! as HTMLInputElement).value )}
+                    onChange={(e: ChangeEvent) => setSearchValue((e.target! as HTMLInputElement).value )}
                 />
             </SearchDiv>
         </>

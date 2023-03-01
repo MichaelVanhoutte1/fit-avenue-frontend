@@ -1,16 +1,18 @@
-import Navbar from "../navbar";
+import { useRouter } from 'next/router'
+import Navbar from '../navbar'
 
 interface LayoutProps {
-    children: any;
+    children: any
 }
 
 const Layout = ({ children }: LayoutProps) => {
+    const router = useRouter()
     return (
         <>
             <main>{children}</main>
-            <Navbar />
+            {router.route !== '/workout-creation' && <Navbar />}
         </>
-    );
-};
+    )
+}
 
-export default Layout;
+export default Layout

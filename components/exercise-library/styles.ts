@@ -3,7 +3,7 @@ import { colors } from "../../styles/variables.styled";
 
 export const ExerciseDiv = styled.div`
     overflow-y: scroll;
-    max-height: calc(100vh - 231.6px);
+    max-height: calc(100vh - 175px);
     width: 100vw;
     ::-webkit-scrollbar {
         width: 6px;

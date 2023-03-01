@@ -44,6 +44,7 @@ export default function Statistics() {
     const [selectedEquipment, setSelectedEquipment] = useState<string[]>([])
     const [filteredExercises, setFilteredExercises] = useState<Array<ExerciseType>>(exerciseData)
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+    const [searchValue, setSearchValue] = useState<string>('')
 
     const getSelectedExerciseTargets = () => {
         const targets = new Set<string>()
@@ -56,6 +57,38 @@ export default function Statistics() {
     useEffect(() => {
         getSelectedExerciseTargets()
     }, [selectedExercises])
+
+    const filterExercises = () => {
+        const searchedExercises = exerciseData.filter((item) => item.name.includes(searchValue))
+        const newFilteredExercises = searchedExercises.filter((exercise) => {
+            if (selectedEquipment.length === 0 && selectedTargetMuscles.length === 0) {
+                return true
+            } else if (selectedEquipment.length === 0) {
+                if (selectedTargetMuscles.includes(exercise.target)) {
+                    return true
+                } else {
+                    return false
+                }
+            } else if (selectedTargetMuscles.length === 0) {
+                if (selectedEquipment.includes(exercise.equipment)) {
+                    return true
+                } else {
+                    return false
+                }
+            } else {
+                if (selectedEquipment.includes(exercise.equipment) && selectedTargetMuscles.includes(exercise.target)) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+        })
+        setFilteredExercises(newFilteredExercises)
+    }
+
+    useEffect(() => {
+        filterExercises()
+    }, [searchValue])
 
     return (
         <>
@@ -78,7 +111,7 @@ export default function Statistics() {
                 <ActionDiv>
                     {step === 1 ? (
                         <>
-                            <Searchbar unFilteredExercises={exerciseData} setFilteredExercises={setFilteredExercises} />
+                            <Searchbar setSearchValue={setSearchValue} />
                             <Image src="/images/icons/filter.svg" alt="profile" width={25} height={25} onClick={() => setIsModalOpen(true)} />
                         </>
                     ) : step === 2 ? (
@@ -98,8 +131,7 @@ export default function Statistics() {
                 <>
                     <ReactModal style={{ content: { inset: 0, height: '100vh', border: 'none', background: '#3c4789', borderRadius: 0 } }} isOpen={isModalOpen}>
                         <ExerciseFilter
-                            unFilteredExercises={exerciseData}
-                            setFilteredExercises={setFilteredExercises}
+                            filterExercises={filterExercises}
                             selectedEquipment={selectedEquipment}
                             selectedTargetMuscles={selectedTargetMuscles}
                             setSelectedEquipment={setSelectedEquipment}

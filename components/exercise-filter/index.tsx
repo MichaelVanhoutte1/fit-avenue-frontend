@@ -6,14 +6,13 @@ import Image from 'next/image'
 
 interface Props {
     targetMuscleData: string[]
-    unFilteredExercises: ExerciseType[]
     equipmentData: string[]
     selectedEquipment: string[]
     selectedTargetMuscles: string[]
-    setFilteredExercises: (exercises: ExerciseType[]) => void
     setSelectedEquipment: (value: string[]) => void
     setSelectedTargetMuscles: (value: string[]) => void
     setIsModalOpen: (value: boolean) => void
+    filterExercises: () => void
 }
 
 const ExerciseFilter = (props: Props) => {
@@ -22,11 +21,10 @@ const ExerciseFilter = (props: Props) => {
         equipmentData,
         selectedEquipment,
         selectedTargetMuscles,
-        unFilteredExercises,
         setIsModalOpen,
         setSelectedEquipment,
         setSelectedTargetMuscles,
-        setFilteredExercises,
+        filterExercises,
     } = props
 
     const checkIfIsSelected = (item: string) => {
@@ -57,33 +55,6 @@ const ExerciseFilter = (props: Props) => {
         }
     }
 
-    const filterExercises = () => {
-        const newFilteredExercises = unFilteredExercises.filter((exercise) => {
-            if (selectedEquipment.length === 0 && selectedTargetMuscles.length === 0) {
-                return true
-            } else if (selectedEquipment.length === 0) {
-                if (selectedTargetMuscles.includes(exercise.target)) {
-                    return true
-                } else {
-                    return false
-                }
-            } else if (selectedTargetMuscles.length === 0) {
-                if (selectedEquipment.includes(exercise.equipment)) {
-                    return true
-                } else {
-                    return false
-                }
-            } else {
-                if (selectedEquipment.includes(exercise.equipment) && selectedTargetMuscles.includes(exercise.target)) {
-                    return true
-                } else {
-                    return false
-                }
-            }
-        })
-        setFilteredExercises(newFilteredExercises)
-    }
-
     return (
         <>
             <ExerciseFilterDiv>
@@ -105,7 +76,7 @@ const ExerciseFilter = (props: Props) => {
                         <BoxLabel toggleFunction={toggleEquipment} checkIfIsSelected={checkIfIsSelected} content={equipment} />
                     ))}
                 </FilterDiv>
-                <FinishButton onClick={filterExercises}>Apply</FinishButton>
+                <FinishButton onClick={() => {filterExercises(); setIsModalOpen(false)}}>Apply</FinishButton>
             </ExerciseFilterDiv>
         </>
     )
