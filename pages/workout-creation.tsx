@@ -216,7 +216,7 @@ export default function Statistics() {
                     <ExercisesDiv>
                         <Title isSmall content="exercises" />
                         {selectedExercises.map((exercise) => (
-                            <Exercise isDropdown toggleExerciseToWorkout={toggleExerciseToWorkout} exerciseData={exercise} />
+                            <Exercise isDropdown workout={workout} toggleExerciseToWorkout={toggleExerciseToWorkout} exerciseData={exercise} />
                         ))}
                     </ExercisesDiv>
                 </>

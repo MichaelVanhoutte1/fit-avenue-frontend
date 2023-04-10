@@ -15,8 +15,8 @@ import {
 } from "./styles";
 import Image from "next/image";
 import { ExerciseType } from "../exercise-library";
-import { ChangeEvent, useState } from "react";
-import { ConfiguredExercise, Workout } from "../../pages/workout-creation";
+import { ChangeEvent } from "react";
+import { Workout } from "../../pages/workout-creation";
 
 interface Props {
     exerciseData: ExerciseType;
