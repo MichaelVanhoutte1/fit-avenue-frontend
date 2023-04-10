@@ -15,7 +15,16 @@ import {
 } from "./styles";
 import Image from "next/image";
 import { ExerciseType } from "../exercise-library";
+import { ChangeEvent, SyntheticEvent, useState } from "react";
 
+export interface ConfiguredExercise {
+    exerciseSets: ExerciseSet[];
+    exerciseId: string;
+}
+export interface ExerciseSet {
+    reps: number
+    weight: number;
+}
 interface Props {
     exerciseData: ExerciseType;
 }
@@ -23,6 +32,22 @@ interface Props {
 const ExerciseConfiguration = (props: Props) => {
     const { exerciseData } = props;
     const { name, gifUrl } = exerciseData;
+    const [configuredExercise, setConfiguredExercise] = useState<ConfiguredExercise>({exerciseSets: [{reps: 8, weight: 80}, {reps: 8, weight: 80}, {reps: 8, weight: 80}], exerciseId: '123'});
+
+    const removeSet = () => {
+        setConfiguredExercise({...configuredExercise, exerciseSets: configuredExercise.exerciseSets.slice(0, -1)});
+    }
+
+    const addSet = () => {
+        setConfiguredExercise({...configuredExercise, exerciseSets: [...configuredExercise.exerciseSets, {reps: 8, weight: 80}]});
+    }
+
+    const updateSet = (index: number, e: ChangeEvent,  reps?: number, weight?: number ) => {
+        const newSets = [...configuredExercise.exerciseSets];
+        newSets[index] = {reps: reps ? reps : parseInt((e.target as HTMLInputElement).value), weight: weight ? weight : parseInt((e.target as HTMLInputElement).value)};
+        setConfiguredExercise({...configuredExercise, exerciseSets: newSets});
+        console.log(configuredExercise)
+    }
 
     return (
         <>
@@ -39,33 +64,22 @@ const ExerciseConfiguration = (props: Props) => {
                         height="30"
                     />
                 </HeadDiv>
+                {configuredExercise.exerciseSets.map((set, index) => (
                 <ConfigurationDiv>
-                    <SetText>set 1</SetText>
+                    <SetText>{'set ' + (index + 1)}</SetText>
                     <ValueDiv>
-                        <InputValue placeholder="8" type="number" />
+                        <InputValue placeholder={set.reps.toString()} onChange={(e: ChangeEvent<HTMLInputElement>) => updateSet(index, e, undefined, set.weight)} type="number" />
                         <UnitText>reps</UnitText>
                     </ValueDiv>
                     <Divider>*</Divider>
                     <ValueDiv>
-                        <InputValue placeholder="80" type="number" />
+                        <InputValue placeholder={set.weight.toString()} onChange={(e: ChangeEvent<HTMLInputElement>) => updateSet(index, e, set.reps, undefined)} type="number" />
                         <UnitText>kg</UnitText>
                     </ValueDiv>
-                </ConfigurationDiv>
-                <ConfigurationDiv>
-                    <SetText>set 1</SetText>
-                    <ValueDiv>
-                        <InputValue placeholder="8" type="number" />
-                        <UnitText>reps</UnitText>
-                    </ValueDiv>
-                    <Divider>*</Divider>
-                    <ValueDiv>
-                        <InputValue placeholder="80" type="number" />
-                        <UnitText>kg</UnitText>
-                    </ValueDiv>
-                </ConfigurationDiv>
+                </ConfigurationDiv>))}
                 <ButtonDiv>
-                    <RemoveButton>remove</RemoveButton>
-                    <AddSetButton>add set</AddSetButton>
+                    <RemoveButton onClick={removeSet}>remove</RemoveButton>
+                    <AddSetButton onClick={addSet}>add set</AddSetButton>
                 </ButtonDiv>
             </ExerciseDiv>
         </>
