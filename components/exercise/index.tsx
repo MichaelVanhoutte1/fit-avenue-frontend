@@ -14,8 +14,7 @@ import { ExerciseType } from "../exercise-library";
 interface Props {
     exerciseData: ExerciseType;
     isSelected?: boolean;
-    selectedExercises?: ExerciseType[];
-    setSelectedExercises?: (exercises: ExerciseType[]) => void;
+    toggleExerciseToWorkout: (exercise: ExerciseType) => void;
     forLibrary?: boolean;
     isDropdown?: boolean;
 }
@@ -26,20 +25,10 @@ const Exercise = (props: Props) => {
         forLibrary,
         isDropdown,
         isSelected,
-        selectedExercises,
-        setSelectedExercises,
+        toggleExerciseToWorkout,
     } = props;
     const { name, gifUrl, target } = exerciseData;
 
-    const toggleExerciseSelect = () => {
-        if (selectedExercises && setSelectedExercises) {
-            if (!selectedExercises.includes(exerciseData)) {
-                setSelectedExercises([...selectedExercises, exerciseData]);
-            } else {
-                setSelectedExercises(selectedExercises.filter((item) => item !== exerciseData));
-            }
-        }
-    };
     return (
         <>
             {forLibrary ? (
@@ -59,7 +48,7 @@ const Exercise = (props: Props) => {
                             alt="Add exercise"
                             width="20"
                             height="20"
-                            onClick={() => toggleExerciseSelect()}
+                            onClick={() => toggleExerciseToWorkout(exerciseData)}
                         />
                     </ImageDiv>
                 </ExerciseDiv>

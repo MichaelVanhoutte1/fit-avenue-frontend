@@ -6,7 +6,7 @@ import RenderIfVisible from "react-render-if-visible";
 interface Props {
     exerciseData: ExerciseType[];
     selectedExercises: ExerciseType[];
-    setSelectedExercises: (exercises: ExerciseType[]) => void;
+    toggleExerciseToWorkout: (exercise: ExerciseType) => void;
 }
 
 export interface ExerciseType {
@@ -19,7 +19,7 @@ export interface ExerciseType {
 }
 
 const ExerciseLibrary = (props: Props) => {
-    const { exerciseData, selectedExercises, setSelectedExercises } = props;
+    const { exerciseData, selectedExercises, toggleExerciseToWorkout } = props;
 
     return (
         <>
@@ -33,8 +33,7 @@ const ExerciseLibrary = (props: Props) => {
                             forLibrary
                             isSelected={selectedExercises.includes(item)}
                             exerciseData={item}
-                            selectedExercises={selectedExercises}
-                            setSelectedExercises={setSelectedExercises}
+                            toggleExerciseToWorkout={toggleExerciseToWorkout}
                         />
                     </RenderIfVisible>
                 ))}

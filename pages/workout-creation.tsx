@@ -36,6 +36,20 @@ import {
 } from '../styles/pages/workout-creation.styled'
 import ExerciseFilter from '../components/exercise-filter'
 
+export interface ConfiguredExercise {
+    exerciseSets: ExerciseSet[]
+    exerciseId: string
+}
+export interface ExerciseSet {
+    reps: number
+    weight: number
+}
+
+export interface Workout {
+    name: string
+    exercises: ConfiguredExercise[]
+}
+
 export default function Statistics() {
     const [step, setStep] = useState(1)
     const [selectedExercises, setSelectedExercises] = useState<Array<ExerciseType>>([])
@@ -45,6 +59,7 @@ export default function Statistics() {
     const [filteredExercises, setFilteredExercises] = useState<Array<ExerciseType>>(exerciseData)
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const [searchValue, setSearchValue] = useState<string>('')
+    const [workout, setWorkout] = useState<Workout>({ name: '', exercises: [] })
 
     const getSelectedExerciseTargets = () => {
         const targets = new Set<string>()
@@ -57,6 +72,33 @@ export default function Statistics() {
     useEffect(() => {
         getSelectedExerciseTargets()
     }, [selectedExercises])
+
+    const toggleExerciseToWorkout = (exercise: ExerciseType) => {
+        if (selectedExercises.includes(exercise) && workout.exercises.find((item) => item.exerciseId === exercise.id)) {
+            const newSelectedExercises = selectedExercises.filter((item) => item.id !== exercise.id)
+            setSelectedExercises(newSelectedExercises)
+            const newWorkout = { ...workout, exercises: workout.exercises.filter((item) => item.exerciseId !== exercise.id) }
+            setWorkout(newWorkout)
+        } else {
+            const newSelectedExercises = [...selectedExercises, exercise]
+            setSelectedExercises(newSelectedExercises)
+            const newWorkout = {
+                ...workout,
+                exercises: [
+                    ...workout.exercises,
+                    {
+                        exerciseId: exercise.id,
+                        exerciseSets: [
+                            { reps: 8, weight: 80 },
+                            { reps: 8, weight: 80 },
+                            { reps: 8, weight: 80 },
+                        ],
+                    },
+                ],
+            }
+            setWorkout(newWorkout)
+        }
+    }
 
     const filterExercises = () => {
         const searchedExercises = exerciseData.filter((item) => item.name.includes(searchValue))
@@ -146,7 +188,7 @@ export default function Statistics() {
                             <ExerciseLibrary
                                 exerciseData={filteredExercises}
                                 selectedExercises={selectedExercises}
-                                setSelectedExercises={setSelectedExercises}
+                                toggleExerciseToWorkout={toggleExerciseToWorkout}
                             />
                         </SelectDiv>
                     </OverflowDiv>
@@ -156,7 +198,7 @@ export default function Statistics() {
                     {selectedExercises.map((exercise) => (
                         <ConfigDiv>
                             <SuperSetCheckbox type="checkbox" />
-                            <ExerciseConfiguration exerciseData={exercise} />
+                            <ExerciseConfiguration workout={workout} setWorkout={setWorkout} exerciseData={exercise} />
                         </ConfigDiv>
                     ))}
                 </ConfigSelectDiv>
@@ -174,7 +216,7 @@ export default function Statistics() {
                     <ExercisesDiv>
                         <Title isSmall content="exercises" />
                         {selectedExercises.map((exercise) => (
-                            <Exercise isDropdown exerciseData={exercise} />
+                            <Exercise isDropdown toggleExerciseToWorkout={toggleExerciseToWorkout} exerciseData={exercise} />
                         ))}
                     </ExercisesDiv>
                 </>

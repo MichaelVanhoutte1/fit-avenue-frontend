@@ -15,37 +15,43 @@ import {
 } from "./styles";
 import Image from "next/image";
 import { ExerciseType } from "../exercise-library";
-import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
+import { ConfiguredExercise, Workout } from "../../pages/workout-creation";
 
-export interface ConfiguredExercise {
-    exerciseSets: ExerciseSet[];
-    exerciseId: string;
-}
-export interface ExerciseSet {
-    reps: number
-    weight: number;
-}
 interface Props {
     exerciseData: ExerciseType;
+    workout: Workout;
+    setWorkout: (workout: Workout) => void;
 }
 
 const ExerciseConfiguration = (props: Props) => {
-    const { exerciseData } = props;
+    const { exerciseData, workout, setWorkout } = props;
     const { name, gifUrl } = exerciseData;
-    const [configuredExercise, setConfiguredExercise] = useState<ConfiguredExercise>({exerciseSets: [{reps: 8, weight: 80}, {reps: 8, weight: 80}, {reps: 8, weight: 80}], exerciseId: '123'});
 
     const removeSet = () => {
-        setConfiguredExercise({...configuredExercise, exerciseSets: configuredExercise.exerciseSets.slice(0, -1)});
+        const exercise = workout.exercises.find((item) => item.exerciseId === exerciseData.id)
+        exercise!.exerciseSets.slice(0, -1);
+        const newWorkout = {...workout, exercises: workout.exercises.filter((item) => item.exerciseId !== exerciseData.id)}
+        newWorkout.exercises.push(exercise!)
+        setWorkout(newWorkout);
     }
 
     const addSet = () => {
-        setConfiguredExercise({...configuredExercise, exerciseSets: [...configuredExercise.exerciseSets, {reps: 8, weight: 80}]});
+        const exercise = workout.exercises.find((item) => item.exerciseId === exerciseData.id)
+        exercise!.exerciseSets.push({reps: 8, weight: 80});
+        const newWorkout = {...workout, exercises: workout.exercises.filter((item) => item.exerciseId !== exerciseData.id)}
+        newWorkout.exercises.push(exercise!)
+        setWorkout(newWorkout);
     }
 
     const updateSet = (index: number, e: ChangeEvent,  reps?: number, weight?: number ) => {
+        const configuredExercise = workout.exercises.find((item) => item.exerciseId === exerciseData.id)!;
         const newSets = [...configuredExercise.exerciseSets];
         newSets[index] = {reps: reps ? reps : parseInt((e.target as HTMLInputElement).value), weight: weight ? weight : parseInt((e.target as HTMLInputElement).value)};
-        setConfiguredExercise({...configuredExercise, exerciseSets: newSets});
+        configuredExercise.exerciseSets = newSets;
+        const newWorkout = {...workout, exercises: workout.exercises.filter((item) => item.exerciseId !== exerciseData.id)}
+        newWorkout.exercises.push(configuredExercise)
+        setWorkout(newWorkout);
         console.log(configuredExercise)
     }
 
@@ -64,7 +70,7 @@ const ExerciseConfiguration = (props: Props) => {
                         height="30"
                     />
                 </HeadDiv>
-                {configuredExercise.exerciseSets.map((set, index) => (
+                {workout.exercises.find((item) => item.exerciseId === exerciseData.id)?.exerciseSets.map((set, index) => (
                 <ConfigurationDiv>
                     <SetText>{'set ' + (index + 1)}</SetText>
                     <ValueDiv>
