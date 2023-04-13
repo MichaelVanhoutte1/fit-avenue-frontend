@@ -128,6 +128,11 @@ export default function Statistics() {
         setFilteredExercises(newFilteredExercises)
     }
 
+    const changeWorkoutName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setWorkout({ ...workout, name: e.target.value })
+        console.log(workout)
+    }
+
     useEffect(() => {
         filterExercises()
     }, [searchValue])
@@ -164,7 +169,7 @@ export default function Statistics() {
                     ) : (
                         <WorkoutNameInputDiv>
                             <Label htmlFor="workoutName">Workout name</Label>
-                            <NameInput placeholder="My new workout" id="workoutName" type="text" />
+                            <NameInput onChange={changeWorkoutName} placeholder="My new workout" id="workoutName" type="text" />
                         </WorkoutNameInputDiv>
                     )}
                 </ActionDiv>

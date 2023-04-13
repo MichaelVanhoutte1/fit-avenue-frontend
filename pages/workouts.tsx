@@ -20,9 +20,6 @@ export default function WorkoutCharts() {
                     <Link href="/workout-creation">
                         <ActionButton>Create</ActionButton>
                     </Link>
-                    <Link href="/workout-creation">
-                        <ActionButton>Edit</ActionButton>
-                    </Link>
                 </ActionDiv>
             </HeadDiv>
             <WorkoutsDiv>

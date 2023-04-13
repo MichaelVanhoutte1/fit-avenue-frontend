@@ -57,6 +57,7 @@ export const ExerciseTitle = styled.p`
     font-size: 1.2rem;
     font-weight: 600;
     margin-left: 1rem;
+    white-space: pre-wrap;
 `;
 
 export const RemoveButton = styled.button`

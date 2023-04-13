@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { BoxLabelDiv, Label } from './styles'
 import cs from 'classnames'
 

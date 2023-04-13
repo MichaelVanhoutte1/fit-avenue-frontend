@@ -1,5 +1,4 @@
 import BoxLabel from '../box-label'
-import { ExerciseType } from '../exercise-library'
 import Title from '../title'
 import { ExerciseFilterDiv, TitleDiv, CloseButton, FilterDiv, FinishButton } from './styles'
 import Image from 'next/image'
