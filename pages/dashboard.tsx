@@ -1,15 +1,14 @@
-import Image from "next/image";
-import DashboardPreviousWorkout from "../components/dashboard/previous-workout";
-import DashboardSummary from "../components/dashboard/summary";
-import Title from "../components/title";
-import WorkoutChart from "../components/workout/chart";
-import {
-    HeadDiv,
-    WorkoutHeadDiv,
-    WorkoutsButton,
-    WorkoutsDiv,
-} from "../styles/pages/dashboard.styled";
-import Link from "next/link";
+import Image from 'next/image'
+import DashboardPreviousWorkout from '../components/dashboard/previous-workout'
+import DashboardSummary from '../components/dashboard/summary'
+import Title from '../components/title'
+import WorkoutChart from '../components/workout/chart'
+import { HeadDiv, WorkoutHeadDiv, WorkoutsButton, WorkoutsDiv } from '../styles/pages/dashboard.styled'
+import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCards } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/effect-cards'
 
 export default function Dashboard() {
     return (
@@ -27,10 +26,18 @@ export default function Dashboard() {
                         <WorkoutsButton>Show all</WorkoutsButton>
                     </Link>
                 </WorkoutHeadDiv>
-                <Link href="/workout/1">
-                    <WorkoutChart />
-                </Link>
+                <Swiper effect={'cards'} grabCursor={true} modules={[EffectCards]} className="mySwiper">
+                    {[1, 2, 3].map(() => {
+                        return (
+                            <SwiperSlide>
+                                <Link href="/workout/1">
+                                    <WorkoutChart />
+                                </Link>
+                            </SwiperSlide>
+                        )
+                    })}
+                </Swiper>
             </WorkoutsDiv>
         </>
-    );
+    )
 }
