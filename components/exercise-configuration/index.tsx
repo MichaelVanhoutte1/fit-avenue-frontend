@@ -71,7 +71,7 @@ const ExerciseConfiguration = (props: Props) => {
                 {workout.exercises
                     .find((item) => item.exerciseId === exerciseData.id)
                     ?.exerciseSets.map((set, index) => (
-                        <ConfigurationDiv>
+                        <ConfigurationDiv key={exerciseData.id + index}>
                             <SetText>{'set ' + (index + 1)}</SetText>
                             <ValueDiv>
                                 <InputValue
