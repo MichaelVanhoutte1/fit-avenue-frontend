@@ -149,7 +149,7 @@ export default function Statistics() {
                         <Image onClick={() => setStep(step - 1)} src="/images/icons/arrow-left.svg" alt="profile" width={20} height={20} />
                     )}
 
-                    {step === 3 ? <FinishButton>Finish</FinishButton> : <NextButton onClick={() => setStep(step + 1)}>Next</NextButton>}
+                    {step === 3 ? <FinishButton><Link href={'/dashboard'}>Finish</Link></FinishButton> : <NextButton onClick={() => setStep(step + 1)}>Next</NextButton>}
                 </ImageDiv>
                 <TitleDiv>
                     <Title isWhite content={step === 1 ? 'Add Exercises' : step === 2 ? 'Add Sets' : 'Summary'} />
